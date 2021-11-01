@@ -102,7 +102,7 @@ in {
 
         modules-left = "powermenu ddlS";
 
-        modules-right = "ddrS cpu dulS ddrT memory dulT ddrP battery";
+        modules-right = "wireless-network network ddrS cpu dulS ddrT memory dulT ddrP battery";
 
         locale = "en_US.UTF-8";
       };
@@ -167,7 +167,7 @@ in {
 
         poll-interval = 2;
 
-        label-full = " 100%";
+        label-full = "  100%";
         format-full-padding = 1;
         format-full-foreground = secondary;
         format-full-background = primary;
@@ -177,11 +177,11 @@ in {
         format-charging-foreground = secondary;
         format-charging-background = primary;
         label-charging = "%percentage%% +%consumption%W";
-        animation-charging-0 = "";
-        animation-charging-1 = "";
-        animation-charging-2 = "";
-        animation-charging-3 = "";
-        animation-charging-4 = "";
+        animation-charging-0 = " ";
+        animation-charging-1 = " ";
+        animation-charging-2 = " ";
+        animation-charging-3 = " ";
+        animation-charging-4 = " ";
         animation-charging-framerate = 500;
 
         format-discharging = "<ramp-capacity> <label-discharging>";
@@ -189,13 +189,13 @@ in {
         format-discharging-foreground = secondary;
         format-discharging-background = primary;
         label-discharging = "%percentage%% -%consumption%W";
-        ramp-capacity-0 = "";
+        ramp-capacity-0 = " ";
         ramp-capacity-0-foreground = urgency;
-        ramp-capacity-1 = "";
+        ramp-capacity-1 = " ";
         ramp-capacity-1-foreground = urgency;
-        ramp-capacity-2 = "";
-        ramp-capacity-3 = "";
-        ramp-capacity-4 = "";
+        ramp-capacity-2 = " ";
+        ramp-capacity-3 = " ";
+        ramp-capacity-4 = " ";
       };
 
       "module/cpu" = {
@@ -233,16 +233,16 @@ in {
         format = "<label-state> <label-mode>";
         format-background = tertiary;
 
-        ws-icon-0 = "1;";
-        ws-icon-1 = "2;";
-        ws-icon-2 = "3;﬏";
-        ws-icon-3 = "4;";
-        ws-icon-4 = "5;";
-        ws-icon-5 = "6;";
-        ws-icon-6 = "7;";
-        ws-icon-7 = "8;";
-        ws-icon-8 = "9;";
-        ws-icon-9 = "10;";
+        ws-icon-0 = "1; ";
+        ws-icon-1 = "2; ";
+        ws-icon-2 = "3; ";
+        ws-icon-3 = "4; ";
+        ws-icon-4 = "5; ";
+        ws-icon-5 = "6; ";
+        ws-icon-6 = "7; ";
+        ws-icon-7 = "8; ";
+        ws-icon-8 = "9; ";
+        ws-icon-9 = "10; ";
 
         label-mode = "%mode%";
         label-mode-padding = 1;
@@ -288,7 +288,7 @@ in {
 
       "module/network" = {
         type = "internal/network";
-        interface = "enp3s0";
+        interface = "enp0s31f6";
 
         interval = "1.0";
 
@@ -349,7 +349,7 @@ in {
         format-background = secondary;
         format-padding = 1;
 
-        label-open = "";
+        label-open = " ";
         label-close = "";
         label-separator = "  ";
 
@@ -363,63 +363,65 @@ in {
 
       "module/wireless-network" = {
         type = "internal/network";
-        interval = "wlp2s0";
+        interface = "wlp2s0";
+        interval = "1.0";
+        format-padding = 1;
       };
 
       #--------------------SOLID TRANSITIONS--------------------#
 
       "module/dsPT" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-background = primary;
         content-foreground = tertiary;
       };
 
       "module/dsTS" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-background = tertiary;
         content-foreground = secondary;
       };
 
       "module/dsST" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-background = secondary;
         content-foreground = tertiary;
       };
 
       "module/daPT" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-background = primary;
         content-foreground = tertiary;
       };
 
       "module/daTP" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-background = tertiary;
         content-foreground = primary;
       };
 
       "module/daST" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-background = secondary;
         content-foreground = tertiary;
       };
 
       "module/daTS" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-background = secondary;
         content-foreground = primary;
       };
 
       "module/daSP" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-background = secondary;
         content-foreground = primary;
       };
@@ -428,84 +430,84 @@ in {
 
       "module/dulT" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-foreground = tertiary;
         content-background = bg;
       };
 
       "module/ddrT" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-foreground = tertiary;
         content-background = bg;
       };
 
       "module/ddlT" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-foreground = tertiary;
         content-background = bg;
       };
 
       "module/durT" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-foreground = tertiary;
         content-background = bg;
       };
 
       "module/ddlP" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-foreground = primary;
         content-background = bg;
       };
 
       "module/durP" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-foreground = primary;
         content-background = bg;
       };
 
       "module/dulP" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-foreground = primary;
         content-background = bg;
       };
 
       "module/ddrP" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-foreground = primary;
         content-background = bg;
       };
 
       "module/dulS" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-foreground = secondary;
         content-background = bg;
       };
 
       "module/ddlS" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-foreground = secondary;
         content-background = bg;
       };
 
       "module/durS" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-foreground = secondary;
         content-background = bg;
       };
 
       "module/ddrS" = {
         type = "custom/text";
-        content = "";
+        content = " ";
         content-foreground = secondary;
         content-background = bg;
       };

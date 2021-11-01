@@ -2,7 +2,7 @@
 
 {
   programs.alacritty = {
-    enable = true;
+    enable = disable;
 
     settings = {
       window = {
