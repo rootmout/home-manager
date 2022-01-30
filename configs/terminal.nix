@@ -43,6 +43,7 @@ in {
       color15 = "#abb2bf";
       selection_foreground = "#282c34";
       selection_background = "#979eab";
+      enable_audio_bell = "no";
     };
   };
 

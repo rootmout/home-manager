@@ -6,6 +6,31 @@
       AddKeysToAgent yes
       IdentityFile ~/.ssh/yubikey.pub
 
+      Host under-1.infra.mout.ch
+	  User root      
+
+      Host *.hirsingue.infra.mout.ch
+          ProxyJump under-1.infra.mout.ch
+          User root
+
+      ### CRI ###
+ 
+      Host 192.168.204.70
+        GSSAPIAuthentication yes
+        GSSAPIDelegateCredentials yes
+     
+      Host 91.243.117.131
+        GSSAPIAuthentication yes
+        GSSAPIDelegateCredentials yes
+      
+      Host 91.243.117.196
+        GSSAPIAuthentication yes
+        GSSAPIDelegateCredentials yes
+
+      Host ssh.cri.epita.fr
+        GSSAPIAuthentication yes
+        GSSAPIDelegateCredentials yes
+
       Host sw-core
         ProxyJump gate
         User manager
@@ -37,9 +62,9 @@
       # PIE et Lab CRI
       # usage: ssh root@HOSTNAME.pie.cri.epita.fr
       # usage: ssh root@HOSTNAME.lab.cri.epita.fr
-      Host *.epita.fr
-        ProxyJump gate
-        User root
+      #Host *.epita.fr
+      #  ProxyJump gate
+      #  User root
 
       # Lab assistant
       # usage: ssh root@HOSTNAME.lab.assistants

@@ -10,14 +10,14 @@
       * (edited by Litarvan and Th0rgal)
       */
 
-      configuration {
-        display-drun:    "Activate";
-        display-run:     "Execute";
-        display-window:  "Window";
-        show-icons:      true;
-        sidebar-mode:    true;
-        font: "JetbrainsMono Nerd Font 12";
-      }
+      //configuration {
+      //  display-drun:    "Activate";
+      //  display-run:     "Execute";
+      //  display-window:  "Window";
+      //  show-icons:      true;
+      //  sidebar-mode:    true;
+      //  font: "JetbrainsMono Nerd Font 12";
+      //}
 
       * {
         background-color:            transparent;

@@ -29,7 +29,10 @@
         "${modifier}+Shift+d" = "exec ${pkgs.rofi}/bin/rofi -show window";
         "${modifier}+b" = "exec ${pkgs.brave}/bin/brave";
         "${modifier}+Shift+x" = "exec systemctl suspend";
-        "${modifier}+l" = "exec ${pkgs.betterlockscreen}/bin/betterlockscreen -l -t 'Back soon :)'";
+        "${modifier}+l" = "exec ${pkgs.betterlockscreen}/bin/betterlockscreen -l";
+        "${modifier}+Ctrl+g" = "move workspace to output left";
+        "${modifier}+Ctrl+h" = "move workspace to output right";
+
       };
 
       startup = [

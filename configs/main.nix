@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
-let shellAliases = { };
+let shellAliases = {
+  os = "openstack";
+  k = "kubectl";
+  docker = "sudo docker";
+  watch = "watch --color";
+};
+
 in {
   imports = [
     ./terminal.nix
@@ -10,7 +16,43 @@ in {
     #TODO./redshift.nix
     ./rofi.nix
     #TODO./vscode.nix
+    #./neovim.nix
   ];
+
+  programs.neovim = {
+  enable = true;
+  extraConfig = ''
+    colorscheme gruvbox
+    let g:context_nvim_no_redraw = 1
+    set mouse=a
+    set number
+    set termguicolors
+  '';
+  plugins = with pkgs.vimPlugins;
+    let
+      context-vim = pkgs.vimUtils.buildVimPlugin {
+        name = "context-vim";
+        src = pkgs.fetchFromGitHub {
+          owner = "wellle";
+          repo = "context.vim";
+          rev = "e38496f1eb5bb52b1022e5c1f694e9be61c3714c";
+          sha256 = "1iy614py9qz4rwk9p4pr1ci0m1lvxil0xiv3ymqzhqrw5l55n346";
+        };
+      };
+    in [
+      context-vim
+      editorconfig-vim
+      gruvbox-community
+      vim-airline
+      vim-elixir
+      vim-nix
+      nvim-tree-lua
+      nvim-cmp
+    ]; # Only loaded if programs.neovim.extraConfig is set
+  viAlias = true;
+  vimAlias = true;
+  vimdiffAlias = true;
+  };
 
   nixpkgs.config.allowUnfree = true;
 
@@ -31,6 +73,46 @@ in {
     betterlockscreen
     nixUnstable
     betterlockscreen
+    etcher
+    dunst
+    libnotify
+    brightnessctl
+    texmaker
+    gimp
+    krb5
+    virt-manager
+    wireshark
+    apache-directory-studio
+    pstree
+    sl
+    qemu_kvm
+    torrential
+    pciutils
+    xbindkeys
+    wpa_supplicant_gui
+    zip
+    ncat
+    hwinfo
+    poetry
+    lshw
+    dhcp
+    tftp-hpa
+    iputils
+    autoconf
+    freerdp
+    openssl
+    nodePackages.npm
+    docker-compose
+    nodejs
+    dpkg
+    jetbrains.pycharm-professional
+    ansible
+    teams
+    kubectl
+    ipcalc
+    vault
+    pixiecore
+    whois
   ];
 
   programs.fzf = { enable = true; };
@@ -96,6 +178,9 @@ in {
       bindkey -M menuselect 'l' vi-forward-char
       bindkey -M menuselect 'j' vi-down-line-or-history
 
+      bindkey -M viins '^?' backward-delete-char
+      bindkey -M viins '^H' backward-delete-char
+
       setopt HIST_FIND_NO_DUPS
       bindkey "$terminfo[kcuu1]" history-substring-search-up
       bindkey "$terminfo[kcud1]" history-substring-search-down
@@ -110,7 +195,7 @@ in {
 
   programs.direnv = {
     enable = true;
-    enableNixDirenvIntegration = true;
+    nix-direnv.enable = true;
   };
 
   services.gpg-agent = {

@@ -66,7 +66,6 @@ in {
 
     # OFFICE
     texlive.combined.scheme-medium
-    typora
     wpsoffice
     todoist-electron
     libreoffice-fresh
