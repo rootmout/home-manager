@@ -22,12 +22,13 @@ in {
   programs.neovim = {
   enable = true;
   extraConfig = ''
-    colorscheme gruvbox
+    colorscheme nord
     let g:context_nvim_no_redraw = 1
     set mouse=a
     set number
     set termguicolors
-  '';
+    '' + "lua << EOF\n" + builtins.readFile ./init.lua + "\nEOF
+  ";
   plugins = with pkgs.vimPlugins;
     let
       context-vim = pkgs.vimUtils.buildVimPlugin {
@@ -48,6 +49,7 @@ in {
       vim-nix
       nvim-tree-lua
       nvim-cmp
+      nord-vim
     ]; # Only loaded if programs.neovim.extraConfig is set
   viAlias = true;
   vimAlias = true;
